@@ -2,8 +2,44 @@ body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
+  font-size: 13px;
   line-height: 18px;
+}
+
+div.noticebox {
+  height: 12px;
+  padding-top: 5;
+  padding-bottom: 5;
+}
+
+div#notice {
+  color: green;
+  border-style: solid;
+  border-color: green;
+  border-width: 2px;
+  width: 355px;
+  text-align: center;
+}
+
+.list {
+  padding-left:8px;
+  padding-right:8px;
+  border-width:1px;
+  border-color:#A0A0A0;
+  border-style:solid;
+  background-color:#E0E0E0;
+  width:45%;
+  padding-bottom:5px;
+  margin-left:1%
+}
+
+#name {
+  padding-left:40px
+}
+
+#options {
+  text-align:center;
+  width:175px
 }
 
 pre {
