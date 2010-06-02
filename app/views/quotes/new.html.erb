@@ -1,0 +1,26 @@
+
+<h1>What do you have to say?</h1>
+
+<% form_for(@quote) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    Student ID#<br />
+    <%= f.text_field :student_id %>
+  </p>
+  <p>
+    Name<br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    Email Address<br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    Your Quote<br />
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit 'Submit!' %>
+  </p>
+<% end %>

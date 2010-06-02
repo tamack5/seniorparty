@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  student_id: MyString
-  content: MyText
+  id: MyString
 
 two:
   name: MyString
-  student_id: MyString
-  content: MyText
+  id: MyString

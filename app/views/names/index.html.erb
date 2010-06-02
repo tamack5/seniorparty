@@ -1,0 +1,14 @@
+<h1>Names</h1>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Student ID#</th>
+</tr>
+<% for name in @names %>
+<tr>
+	<td><%=h name.name %></td>
+	<td><%=h name.studentid %></td>
+</tr>
+<% end %>
+</table>

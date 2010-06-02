@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Billboard of Quotes</title>
+<script language="JavaScript"><!--
+function redirect () { setTimeout("go_now()",10000); }
+function go_now ()   { window.location.href = "<%= url_for :controller => 'billboard', :action => 
+'index', :id => @quote.id %>"; }
+//--></script>
+</head>
+<body onLoad="redirect()">
+<div style="text-align:center;font-family:Arial;margin-top:20%">
+<p><div style="font-weight:bold;font-size:70px;">"<%= @quote.content%>"</div></p>
+<div style="text-transform:capitalize;text-indent:200px;font-size:25px;"><%= @quote.name %></div>
+</div>
+</body>
+</html>

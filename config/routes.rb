@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :quotes
+
+  map.resources :names
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -41,10 +44,6 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
 
-  
-  map.connect '/list', :controller => 'quotes', :action => 'list'
+  map.root :controller => "quotes", :action => "new" 
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
-  map.root :controller => 'quotes'
 end
