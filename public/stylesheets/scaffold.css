@@ -60,11 +60,11 @@ div#notice {
 .list {
   padding-left:8px;
   padding-right:8px;
-  border-width:1px;
-  border-color:#A0A0A0;
+  border-width:3px;
+  border-color:#3A2C1E;
   border-style:solid;
-  background-color:#E0E0E0;
-  width:45%;
+  background-color:#668359;
+  width: 95%;
   padding-bottom:5px;
   margin-left:1%
 }
@@ -85,7 +85,7 @@ pre {
 }
 
 a { color: #000; }
-a:visited { color: #666; }
+a:visited { color: #333; }
 a:hover { color: #fff; background-color:#000; }
 
 .fieldWithErrors {
