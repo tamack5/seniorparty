@@ -1,8 +1,6 @@
 class QuotesController < ApplicationController
 
   # Before filter and the little private thing in the bottom are for authentication.
-  # couldn't get a list action working by itself, but when I changed the name of it to 'new' it worked...
-  # ...so i just hijacked :new and made it instead a kind of list function... should fix that.
 
   before_filter :authentication, :except => [:create, :new]
 
