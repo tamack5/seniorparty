@@ -10,6 +10,7 @@ div.errorExplanation {
   color: black;
 }
 
+input#quote_login_id,
 input#quote_student_id,
 input#quote_name,
 input#quote_email,
