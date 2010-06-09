@@ -10,7 +10,8 @@ function go_now ()   { window.location.href = "<%= url_for :controller => 'billb
 <body onLoad="redirect()">
 <div style="text-align:center;font-family:Arial;margin-top:20%">
 <p><div style="font-weight:bold;font-size:70px;">"<%= @quote.content%>"</div></p>
-<div style="text-transform:capitalize;text-indent:200px;font-size:25px;"><%= @quote.name %></div>
+<div style="text-transform:capitalize;text-indent:200px;font-size:25px;">-<%= @student.first_name %> <%= 
+@student.last_name %></div>
 </div>
 </body>
 </html>

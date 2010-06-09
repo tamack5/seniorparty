@@ -50,9 +50,10 @@ div.noticebox {
 }
 
 div#notice {
-  color: green;
+  color: #CD1111;
+  background-color: #CC9999;
   border-style: solid;
-  border-color: green;
+  border-color: #CD3333;
   border-width: 2px;
   width: 355px;
   text-align: center;

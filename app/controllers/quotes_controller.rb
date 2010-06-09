@@ -8,7 +8,7 @@ class QuotesController < ApplicationController
   # GET /quotes.xml
   def index
     @quotes = Quote.all
-
+    @students = Student.all
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @quotes }
@@ -33,21 +33,39 @@ class QuotesController < ApplicationController
   # POST /quotes
   # POST /quotes.xml
   def create
-   # @student = Student.find(:all, :conditions => ["student_id = ?", :quote.student_id])
-   # if @student.login_id == :quote.login_id
     @quote = Quote.new(params[:quote])
-   # end
-
-    respond_to do |format|
+    if @quote.student_id.empty? || @quote.login_id.empty?
+      respond_to do |format|
+        flash[:notice] = 'Student ID and computer login number are required.'
+        format.html { redirect_to('/') }
+      end
+    else
+    if  @student = Student.find(:first, :conditions => {:student_id =>  @quote.student_id})
+    if @student.login_id == @quote.login_id
+      respond_to do |format|
       if @quote.save
-        #flash[:notice] = 'Quote was successfully created.'
+       # flash[:notice] = 'Quote was successfully created.'
+       # flash[:notice] = @student
         format.html { redirect_to('/') }
         format.xml  { render :xml => @quote, :status => :created, :location => @quote }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @quote, :status => :unprocessable_entity }
       end
+      end
+    else
+      respond_to do |format|
+        flash[:notice] = 'Student ID and computer login number are not correct.'
+        format.html { redirect_to('/') }
+      end
     end
+    else
+      respond_to do |format|
+        flash[:notice] = 'Student ID and computer login are not correct.'
+        format.html { redirect_to('/') }
+   end
+end
+   end
   end
 
   # PUT /quotes/1
