@@ -4,6 +4,7 @@
 <table>
   <tr>
     <th>Student ID#</th>
+    <th>Computer Login #</th>
     <th>Name</th>
     <th>Email</th>
     <th>Quote</th>
@@ -12,6 +13,7 @@
 <% @quotes.each do |quote| %>
   <tr>
     <td><%=h quote.student_id %></td>
+    <td><%=h quote.login_id %></td>
     <td><%=h quote.name %></td>
     <td><%=h quote.email %></td>
     <td><%=h quote.content %></td>

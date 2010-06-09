@@ -33,7 +33,10 @@ class QuotesController < ApplicationController
   # POST /quotes
   # POST /quotes.xml
   def create
+   # @student = Student.find(:all, :conditions => ["student_id = ?", :quote.student_id])
+   # if @student.login_id == :quote.login_id
     @quote = Quote.new(params[:quote])
+   # end
 
     respond_to do |format|
       if @quote.save
