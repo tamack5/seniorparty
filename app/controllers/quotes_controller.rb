@@ -37,7 +37,7 @@ class QuotesController < ApplicationController
     if @quote.student_id.empty? || @quote.login_id.empty?
       respond_to do |format|
         flash[:notice] = 'Student ID and Computer Login Number are required.'
-        format.html { render :new }
+        format.html { redirect_to('/') }
       end
     else
       if @student = Student.find(:first, :conditions => {:student_id =>  @quote.student_id})
@@ -56,13 +56,13 @@ class QuotesController < ApplicationController
     else
       respond_to do |format|
         flash[:notice] = 'Student ID and Computer Login Number are not correct.'
-        format.html { render :action => "new" }
+        format.html { redirect_to('/') }
       end
     end
     else
       respond_to do |format|
         flash[:notice] = 'Student ID and Computer Login Number are not correct.'
-        format.html { render :action => "new" }
+        format.html { redirect_to('/') }
       end
     end
 end
