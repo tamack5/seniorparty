@@ -9,10 +9,10 @@ Where will we go from here?
 <% form_for(@quote) do |f| %>
   <%= f.error_messages %>
   <% if flash[:notice] %>
-    <div id='errorExplanation' style='color:black'><%= flash[:notice] %></div>
+    <div id='errorExplanation'><%= flash[:notice] %></div>
   <% end %>
   <p>
-    Student ID#<br />
+    Student ID #<br />
     <%= f.text_field :student_id %>
   </p>
   <p>

@@ -36,37 +36,37 @@ class QuotesController < ApplicationController
     @quote = Quote.new(params[:quote])
     if @quote.student_id.empty? || @quote.login_id.empty?
       respond_to do |format|
-        flash[:notice] = 'Student ID and computer login number are required.'
-        format.html { redirect_to('/') }
+        flash[:notice] = 'Student ID and Computer Login Number are required.'
+        format.html { render :new }
       end
     else
-    if  @student = Student.find(:first, :conditions => {:student_id =>  @quote.student_id})
-    if @student.login_id == @quote.login_id
+      if @student = Student.find(:first, :conditions => {:student_id =>  @quote.student_id})
+        if @student.login_id == @quote.login_id
+          respond_to do |format|
+            if @quote.save
+              #flash[:notice] = 'Quote was successfully created.'
+              #flash[:notice] = @student
+              format.html { redirect_to('/') }
+              format.xml  { render :xml => @quote, :status => :created, :location => @quote }
+            else
+              format.html { render :action => "new" }
+              format.xml  { render :xml => @quote, :status => :unprocessable_entity }
+          end
+        end
+    else
       respond_to do |format|
-      if @quote.save
-       # flash[:notice] = 'Quote was successfully created.'
-       # flash[:notice] = @student
-        format.html { redirect_to('/') }
-        format.xml  { render :xml => @quote, :status => :created, :location => @quote }
-      else
+        flash[:notice] = 'Student ID and Computer Login Number are not correct.'
         format.html { render :action => "new" }
-        format.xml  { render :xml => @quote, :status => :unprocessable_entity }
-      end
-      end
-    else
-      respond_to do |format|
-        flash[:notice] = 'Student ID and computer login number are not correct.'
-        format.html { redirect_to('/') }
       end
     end
     else
       respond_to do |format|
-        flash[:notice] = 'Student ID and computer login are not correct.'
-        format.html { redirect_to('/') }
-   end
+        flash[:notice] = 'Student ID and Computer Login Number are not correct.'
+        format.html { render :action => "new" }
+      end
+    end
 end
-   end
-  end
+end
 
   # PUT /quotes/1
   # PUT /quotes/1.xml
