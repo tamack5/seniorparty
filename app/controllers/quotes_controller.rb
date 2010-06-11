@@ -101,7 +101,7 @@ end
 
   def authentication
     id = "admin"
-    pass = "admin"
+    pass = "sr2010grad"
     authenticate_or_request_with_http_basic do |user,password|
       user == id && password == pass
     end
